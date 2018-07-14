@@ -1,8 +1,8 @@
 # High-intensity Interval Training CLI
 
-This is a command line utility for doing high-intensity interval training.
+This is a command-line utility for doing high-intensity interval training.
 
-Write down your training steps in workout.txt, one step per line.
+Write down your training steps in `workout.txt`, one step per line.
 
 Then run:
 
