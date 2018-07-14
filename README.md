@@ -1,15 +1,12 @@
 # High-intensity Interval Training CLI
 
+This is a command line utility for doing high-intensity interval training.
+
 Write down your training steps in workout.txt, one step per line.
 
 Then run:
 
     ./workout.rb
-
-
-# Requirements
-
-Make sure you have `mpv` installed and on the path (or change the `AUDIO_PLAYER` in the script).
 
 
 # Example Output
@@ -34,6 +31,11 @@ GO!
 
 All done! Congratulations.
 ```
+
+# Requirements
+
+Make sure you have `mpv` installed and on the path (or change the `AUDIO_PLAYER` in the script).
+
 
 
 # Attribution
