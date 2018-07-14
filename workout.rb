@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-WORK = 10
+WORK = 30
 REST = 5
 AUDIO_PLAYER = 'mpv'
 

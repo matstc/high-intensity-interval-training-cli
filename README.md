@@ -7,6 +7,11 @@ Then run:
     ./workout.rb
 
 
+# Requirements
+
+Make sure you have `mpv` installed and on the path (or change the `AUDIO_PLAYER` in the script).
+
+
 # Example Output
 
 ```
