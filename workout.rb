@@ -1,32 +1,50 @@
 #!/usr/bin/env ruby
+#
+#
+# This script reads the workout activities from the file WORKOUT_FILE (defaults
+# to `workout.txt`). Each line of this file consists in the name of the activity
+# and optional details or variations in parentheses (not read aloud).
+#
+# You can configure options in the file `config.rb`.
+#
+# Make sure you have `mpv` and `espeak` installed.
+#
+# Usage:
+#
+#     ./workout.rb
 
-WORK = 30
-REST = 5
-AUDIO_PLAYER = 'mpv'
+require_relative './config'
+require_relative './lib'
 
-def play file
-	fork {`nohup #{AUDIO_PLAYER} #{file} 2> /dev/null 1> /dev/null`}
-end
+workout = File.open(WORKOUT_FILE).readlines.map(&:chomp).sample(NUMBER_OF_ACTIVITIES)
 
-workout = File.open('workout.txt').readlines.map(&:chomp)
-
+puts "————————————————————————————————————————————————————————"
+puts workout.map.with_index {|activity, index| "#{index + 1} – #{activity}"}.join("\n")
+puts
 puts "#{WORK} seconds of work"
 puts "#{REST} seconds of rest"
+puts "————————————————————————————————————————————————————————"
+puts
 total_seconds = (WORK * workout.length) + (REST * (workout.length - 1))
 
 puts "The workout will last #{sprintf("%.2f", total_seconds/60.to_f)} minutes"
 puts
 
 workout.each.with_index do |activity, index|
-	puts "Get ready for #{activity}"
+
+	main, details = parse(activity)
+	puts "Get ready for #{main.upcase} #{details ? "(#{details})" : ""}"
+	communicate "Get ready for #{activity}"
 
 	if index > 0
 		play "./bliss.ogg"
+		sleep VOICE_DELAY
 	end
 
-	sleep REST
-	puts "GO!"
+	sleep REST - VOICE_DELAY
+
 	play "./system-ready.ogg"
+	communicate "GO!"
 
 	(WORK - 3).times {print "."; sleep 1}
 
