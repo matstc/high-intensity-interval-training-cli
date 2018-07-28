@@ -32,27 +32,20 @@ puts
 
 workout.each.with_index do |activity, index|
 
-	if index > 0
-		play "./bliss.ogg"
-		sleep VOICE_DELAY
-	end
+	play "./bliss.ogg" if index > 0
 
 	main, details = parse(activity)
 	puts "Get ready for #{main.upcase} #{details ? "(#{details})" : ""}"
 	communicate "Get ready for #{activity}"
 
-	sleep REST - VOICE_DELAY
+	sleep REST - 3
+	beep 3, print_dot: false
 
 	play "./system-ready.ogg"
 	communicate "GO!", print:true, newline:false
 
 	(WORK - 3).times {print "."; sleep 1}
-
-	3.times do
-		print "."
-		play "./dialog-information.ogg"
-		sleep 1
-	end
+	beep 3
 
 	puts "DONE"
 end

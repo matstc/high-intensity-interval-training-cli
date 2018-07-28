@@ -20,3 +20,10 @@ def parse line
 	[main, details.length > 0 ? details : nil]
 end
 
+def beep n, print_dot: true
+	n.times do
+		print "." if print_dot
+		play "./dialog-information.ogg"
+		sleep 1
+	end
+end
