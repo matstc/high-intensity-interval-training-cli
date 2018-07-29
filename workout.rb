@@ -16,7 +16,7 @@
 require_relative './config'
 require_relative './lib'
 
-workout = File.open(WORKOUT_FILE).readlines.map(&:chomp).sample(NUMBER_OF_ACTIVITIES)
+workout = File.open(WORKOUT_FILE).readlines.map(&:chomp).select {|a| !a.start_with?('#')}.sample(NUMBER_OF_ACTIVITIES)
 
 puts "————————————————————————————————————————————————————————"
 puts workout.map.with_index {|activity, index| "#{index + 1} – #{activity}"}.join("\n")
