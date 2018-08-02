@@ -14,6 +14,12 @@ h1 {
 	font-size:100%;
 }
 
+h1 div {
+	height:30px;
+	line-height: 30px;
+	text-transform: uppercase;
+}
+
 button {
 	cursor:pointer;
 	padding:8px 24px;
@@ -32,6 +38,15 @@ button {
 	display:flex;
 	align-items:center;
 	justify-content:center;
+}
+
+.buttons {
+	float:right;
+}
+
+.buttons button {
+	height:30px;
+	padding:0 8px;
 }
 
 #gym {
