@@ -46,6 +46,10 @@ All done! Congratulations.
 Make sure you have `mpv` and `espeak` installed and on the path (or change the `config.rb`).
 
 
+# As a web app
+
+You can also run the app as a web app. Just run `yarn install` and then `yarn run start`.
+
 
 # Attribution
 
