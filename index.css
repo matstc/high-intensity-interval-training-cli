@@ -1,0 +1,52 @@
+html, body {
+	margin:0;
+	padding:0;
+	font-family: Ubuntu, sans-serif;
+}
+
+h1 {
+	text-align:center;
+	color: #eee;
+	background-color: black;
+	margin:0;
+	font-size:100%;
+}
+
+button {
+	cursor:pointer;
+	padding:8px 24px;
+	font-family: Ubuntu, sans-serif;
+	font-size:80%;
+	background-color: orange;
+	color:white;
+	border: 1px solid orange;
+	box-shadow: 1px 1px 3px #aaa;
+}
+
+#stopwatch {
+	font-size: 500%;
+	text-align: center;
+	flex-grow: 2;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+}
+
+#gym {
+	height: 100vh;
+	width: 100vw;
+	display:flex;
+	flex-direction:column;
+}
+
+#setlist {
+	background-color: #eee;
+}
+
+#PA {
+	font-size: 300%;
+	text-align:center;
+	background-color: green;
+	color:white;
+	padding: 4px 2px;
+}
