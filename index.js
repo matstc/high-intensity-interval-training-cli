@@ -32,7 +32,7 @@ function goFor(activity){
 function end(){
 	document.querySelector('#PA').textContent = `DONE!`
 	speechSynthesis.speak(new SpeechSynthesisUtterance("You're done. Congratulations!"))
-	document.querySelector('#stopwatch').innerHTML = "<button onclick='location.reload()'>Go again</button>"
+	document.querySelector('#stopwatch').innerHTML = "Congratulations"
 }
 
 function beep(){

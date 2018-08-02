@@ -4,6 +4,6 @@
     "lodash-es": "^4.17.10"
   },
   "scripts": {
-    "start": "./node_modules/.bin/http-server"
+    "start": "./node_modules/.bin/http-server -c-1"
   }
 }

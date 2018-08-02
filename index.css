@@ -15,20 +15,23 @@ h1 {
 }
 
 h1 div {
-	height:30px;
-	line-height: 30px;
+	height:40px;
+	line-height: 40px;
 	text-transform: uppercase;
 }
 
-button {
+.buttons {
+	float:right;
+}
+
+.buttons button {
 	cursor:pointer;
-	padding:8px 24px;
 	font-family: Ubuntu, sans-serif;
-	font-size:80%;
+	font-size:145%;
 	background-color: orange;
-	color:white;
-	border: 1px solid orange;
-	box-shadow: 1px 1px 3px #aaa;
+	border:1px solid black;
+	height:40px;
+	padding:0 12px;
 }
 
 #stopwatch {
@@ -38,15 +41,6 @@ button {
 	display:flex;
 	align-items:center;
 	justify-content:center;
-}
-
-.buttons {
-	float:right;
-}
-
-.buttons button {
-	height:30px;
-	padding:0 8px;
 }
 
 #gym {
