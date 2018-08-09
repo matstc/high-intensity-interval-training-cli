@@ -6,14 +6,22 @@ const SAMPLE_SIZE = 10
 
 let startTime = null
 let index = 0
-let saidGo = false
-let beeps = []
+let said = []
+let utterances = []
+utterances[WORK + 3] = say.bind(null, "Beep")
+utterances[WORK + 2] = say.bind(null, "Beep")
+utterances[WORK + 1] = say.bind(null, "Beep")
+utterances[WORK] = function(activities, index){goFor(activities[index])}
+utterances[WORK / 2 + 1] = say.bind(null, "Half-way there")
+utterances[3] = say.bind(null, "Beep")
+utterances[2] = say.bind(null, "Beep")
+utterances[1] = say.bind(null, "Beep")
+utterances[0] = say.bind(null, "Done")
 
 function reset(){
 	index++
 	startTime = null
-	saidGo = false
-	beeps = []
+	said = []
 }
 
 function prepareFor(activity){
@@ -35,8 +43,8 @@ function end(){
 	document.querySelector('#stopwatch').innerHTML = "Congratulations"
 }
 
-function beep(){
-  speechSynthesis.speak(new SpeechSynthesisUtterance("Beep!"))
+function say(message){
+  speechSynthesis.speak(new SpeechSynthesisUtterance(message))
 }
 
 function perform(activities){
@@ -54,16 +62,9 @@ function perform(activities){
 
 	document.querySelector('#stopwatch').textContent = secondsRemaining
 
-	if (secondsRemaining <= WORK && !saidGo) {
-		goFor(activities[index])
-		saidGo = true
-	}
-
-	if ((secondsRemaining > 0 && secondsRemaining <= 3) || (secondsRemaining > WORK && secondsRemaining <= (WORK + 3))) {
-		if (beeps[secondsRemaining - 1] !== true) {
-			beep()
-			beeps[secondsRemaining - 1] = true
-		}
+	if (utterances[secondsRemaining] && said[secondsRemaining] === undefined) {
+		utterances[secondsRemaining](activities, index, secondsRemaining)
+		said[secondsRemaining] = true
 	}
 
 	if (secondsRemaining < 1){ reset() }
