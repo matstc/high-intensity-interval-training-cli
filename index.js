@@ -1,7 +1,7 @@
 import sampleSize from './node_modules/lodash-es/sampleSize.js'
 
-const WORK = 30
-const REST = 8
+const WORK = 35
+const REST = 10
 const SAMPLE_SIZE = 10
 
 let startTime = null
